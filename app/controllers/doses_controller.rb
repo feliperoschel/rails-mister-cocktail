@@ -11,7 +11,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail.id)
     else
-      render :new
+      render :new ####### render not working if dose invalid
     end
   end
 

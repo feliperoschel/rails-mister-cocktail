@@ -1,15 +1,13 @@
-<div>
-  <div class="container center">
-    <p><%= link_to "Add Cocktail", new_cocktail_path, class: "btn btn-primary" %></p>
-    <div class="border">
-      <% @cocktails.each do |cocktail| %>
-        <div class="border">
-          <h4><%= link_to cocktail.name, cocktail_path(cocktail) %></h4>
-          <p><%= cocktail.category %></p>
-          <p><%= cocktail.garnish %></p>
-          <p><%= cocktail.preparation %></p>
-        </div>
-      <% end %>
-    </div>
+<div class="container center">
+  <p><%= link_to "Add Cocktail", new_cocktail_path, class: "btn btn-primary" %></p>
+  <div class="border">
+    <% @cocktails.each do |cocktail| %>
+      <div class="border">
+        <h4><%= link_to cocktail.name, cocktail_path(cocktail) %></h4>
+        <p><%= cocktail.category %></p>
+        <p><%= cocktail.garnish %></p>
+        <p><%= cocktail.preparation %></p>
+      </div>
+    <% end %>
   </div>
 </div>
