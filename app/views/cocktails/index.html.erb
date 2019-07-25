@@ -1,0 +1,4 @@
+<p><%= link_to "Add Cocktail", new_cocktail_path, class: "btn btn-primary" %></p>
+<% @cocktails.each do |cocktail| %>
+  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+<% end %>

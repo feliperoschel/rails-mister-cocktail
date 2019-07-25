@@ -1,0 +1,9 @@
+<div class="container center">
+  <h1>New Cocktail</h1>
+  <div class="border">
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Add Cocktail", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
