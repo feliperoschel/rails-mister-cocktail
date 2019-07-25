@@ -1,15 +1,24 @@
-<h3><%= @cocktail.name %></h3>
-<h5>Doses</h5>
-<% @cocktail.doses.each do |dose| %>
-  <p><%= dose.description %>-<%= dose.ingredient.name %> <%= link_to "Delete", dose_path(dose), method: :delete %> </p>
-<% end %>
-<div class="container center">
-  <h5>New Dose</h5>
-  <div class="border">
-    <%= simple_form_for [@cocktail, @cocktail.doses.new] do |f| %>
-      <%= f.input :description %>
-      <%= f.association :ingredient %>
-      <%= f.submit "Add dose", class: "btn btn-primary" %>
-    <% end %>
+<div>
+  <div class="container center">
+    <div class="border">
+      <h4><%= @cocktail.name %></h4>
+      <p><%= @cocktail.category %></p>
+      <p><%= @cocktail.garnish %></p>
+      <p><%= @cocktail.preparation %></p>
+    </div>
+    <div class="border">
+      <h5>Ingredients</h5>
+      <% @cocktail.doses.each do |dose| %>
+        <p><%= dose.description %> - <%= dose.ingredient.name %> <%= link_to "Delete", dose_path(dose), method: :delete %> </p>
+      <% end %>
+    </div>
+    <h5>New Dose</h5>
+    <div class="border">
+      <%= simple_form_for [@cocktail, @cocktail.doses.new] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient %>
+        <%= f.submit "Add dose", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>

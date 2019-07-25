@@ -19,7 +19,11 @@ user_serialized = open(url).read
 user = JSON.parse(user_serialized)
 
 user.each do |recipe|
-  cocktail = Cocktail.find_or_create_by!(name: recipe['name'])
+  cocktail = Cocktail.find_or_create_by!(name: recipe['name'],
+                                         category: recipe['category'],
+                                         garnish: recipe['garnish'],
+                                         preparation: recipe['preparation']
+                                         )
 
   recipe['ingredients'].each do |i|
     if i['label'].nil? ? (name = i['ingredient']) : (name = i['label'])
@@ -33,6 +37,19 @@ user.each do |recipe|
       end
     end
   end
+end
+
+url = 'https://raw.githubusercontent.com/maltyeva/iba-cocktails/master/ingredients.json'
+user_serialized = open(url).read
+user = JSON.parse(user_serialized)
+
+user.each do |i|
+  ingredient = Ingredient.find_or_create_by(name: i[0])
+  ingredient.update!(
+    name: i[0],
+    abv: i[1]['abv'],
+    taste: i[1]['taste']
+  )
 end
 
 puts "Created #{Cocktail.count} cocktails!"
