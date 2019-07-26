@@ -5,8 +5,6 @@
       <p><%= @cocktail.category %></p>
       <p><%= @cocktail.garnish %></p>
       <p><%= @cocktail.preparation %></p>
-      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
-      <%= image_tag @cocktail.photo.url(:bright_face) %>
     </div>
     <div class="border">
       <h5>Ingredients</h5>
