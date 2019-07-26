@@ -12,6 +12,9 @@ class DosesController < ApplicationController
       redirect_to cocktail_path(@cocktail.id)
     else
       render :new ####### render not working if dose invalid
+      # render 'cocktails/show'
+      # redirect_to cocktail_path(@cocktail)
+      # redirect_back(fallback_location: @cocktail)
     end
   end
 
