@@ -6,6 +6,9 @@
       <p><%= @cocktail.garnish %></p>
       <p><%= @cocktail.preparation %></p>
     </div>
+    <div>
+      <%= cl_image_tag(@cocktail.photo, width: 400, height: 300, crop: :fill) %>
+    </div>
     <div class="border">
       <h5>Ingredients</h5>
       <% @cocktail.doses.each do |dose| %>

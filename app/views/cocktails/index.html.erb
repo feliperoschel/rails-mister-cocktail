@@ -1,15 +1,16 @@
-<div class="container center">
-  <p><%= link_to "Add Cocktail", new_cocktail_path, class: "btn btn-primary" %></p>
-  <div class="border">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1558645836-e44122a743ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);">
+  <div class="container">
+    <h1>Mr Cocktail</h1>
+    <p>Change your day and have a drink in one of our pubs around the world.</p>
+  </div>
+</div>
+<div class="container py">
+  <div class="cards py-3">
     <% @cocktails.each do |cocktail| %>
-      <div class="border">
-        <h4><%= link_to cocktail.name, cocktail_path(cocktail) %></h4>
-        <p><%= cocktail.category %></p>
-        <p><%= cocktail.garnish %></p>
-        <p><%= cocktail.preparation %></p>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+        <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
       </div>
     <% end %>
   </div>
 </div>
-<%= cl_image_tag("ko3p2szmlrkhclovlhxq",
-      width: 400, height: 300, crop: :fill) %>
