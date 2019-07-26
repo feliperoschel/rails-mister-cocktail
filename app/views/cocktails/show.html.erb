@@ -5,6 +5,8 @@
       <p><%= @cocktail.category %></p>
       <p><%= @cocktail.garnish %></p>
       <p><%= @cocktail.preparation %></p>
+      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+      <%= image_tag @cocktail.photo.url(:bright_face) %>
     </div>
     <div class="border">
       <h5>Ingredients</h5>
@@ -14,7 +16,7 @@
     </div>
     <h5>New Dose</h5>
     <div class="border">
-      <%= simple_form_for [@cocktail, @cocktail.doses.new] do |f| %>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
         <%= f.input :description %>
         <%= f.association :ingredient %>
         <%= f.submit "Add dose", class: "btn btn-primary" %>
